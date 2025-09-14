@@ -1,11 +1,7 @@
 <h1 class="mb-4">
-    This is new - Product Listing Page
+  This is new - Product Listing Page
 </h1>
 
 <a class="my-5" href={~p"/?#{[console: "xbox", admin: true]}"}>Go back to home page</a>
 
-
-
-<.product :for = {product <- @products} name = {product.name} />
-
-
+<.product :for={product <- @products} name={product.name} />

@@ -3,7 +3,7 @@ defmodule ShopWeb.RandomHTML do
 
   def random(assigns) do
     ~H"""
-    <h1> This is a random function </h1>
+    <h1>This is a random function</h1>
     """
   end
 end

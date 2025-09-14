@@ -59,7 +59,7 @@ defmodule ShopWeb.Endpoint do
   end
 
   def check_promo_code(%Plug.Conn{} = conn, opts) do
-     IO.inspect(opts)
+    IO.inspect(opts)
     assign(conn, :promo, false)
   end
 end
