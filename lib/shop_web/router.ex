@@ -28,6 +28,7 @@ defmodule ShopWeb.Router do
     get "/products", ProductController, :index
     get "/random", RandomController, :random
     get "/products/:slug", ProductController, :show
+    resources "/promotions", PromotionController
 
     # resources "/products", ProductController, except: [:delete]
 
