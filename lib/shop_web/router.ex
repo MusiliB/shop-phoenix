@@ -42,6 +42,7 @@ defmodule ShopWeb.Router do
     pipe_through :api
 
     get "/products", ApiController, :index
+    resources "/promotions", PromotionController, except: [:new, :edit]
   end
 
   # scope "/dashboard", ShopWeb do
