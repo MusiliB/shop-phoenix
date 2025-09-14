@@ -1,9 +1,11 @@
-<h1>
+<h1 class="mb-4">
     This is new - Product Listing Page
 </h1>
 
-<a href={~p"/?#{[console: "xbox", admin: true]}"}>Go back to home page</a>
+<a class="my-5" href={~p"/?#{[console: "xbox", admin: true]}"}>Go back to home page</a>
 
-<p :if={@promo} >This is my promo code <%= @promo %> </p>
 
-<p>This is the full url: <%= url(~p"/products") %></p>
+
+<.product :for = {product <- @products} name = {product.name} />
+
+
