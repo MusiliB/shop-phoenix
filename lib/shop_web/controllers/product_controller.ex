@@ -1,21 +1,18 @@
 defmodule ShopWeb.ProductController do
   use ShopWeb, :controller
 
-  @products [
-    %{id: 1, name: "GOW"},
-    %{id: 2, name: "GTA"},
-    %{id: 3, name: "Red Dead"}
-  ]
+  alias Shop.{Repo, Product}
 
   def index(conn, _params) do
+    products = Repo.all(Product)
+
     conn
-    |> assign(:products, @products)
+    |> assign(:products, products)
     |> render(:index)
   end
 
-  def show(conn, %{"id" => id}) do
-    id = String.to_integer(id)
-    product = Enum.find(@products, fn product -> product.id == id end)
+  def show(conn, %{"slug" => slug}) do
+    product = Repo.get_by(Product, slug: slug)
 
     conn
     |> assign(:product, product)

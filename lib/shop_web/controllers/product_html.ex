@@ -3,11 +3,11 @@ defmodule ShopWeb.ProductHTML do
 
   embed_templates "product_html/*"
 
-  attr :name, :string, required: true
+  attr :product, :any, required: true
 
   def product(assigns) do
     ~H"""
-    <p>Game: {@name}</p>
+    <.link href={~p"/products/#{@product.slug}"} class="block">  {@product.name}</.link>
     """
   end
 end

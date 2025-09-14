@@ -30,11 +30,14 @@ defmodule Shop.Product do
   end
 
   defp generate_slug(changeset) do
-        slug =
+    slug =
       changeset.changes.name
       |> String.downcase()
-      |> String.replace(" ", "-")
+      # replaces 1+ spaces with single dash
+      |> String.replace(~r/\s+/, "-")
+      # remove leading/trailing dashes (optional)
+      |> String.trim("-")
 
-         put_change(changeset, :slug, slug)
+    put_change(changeset, :slug, slug)
   end
 end
