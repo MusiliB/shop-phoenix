@@ -15,7 +15,7 @@ defmodule ShopWeb.PromotionController do
     with {:ok, %Promotion{} = promotion} <- Promotions.create_promotion(promotion_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/promotions/#{promotion}")
+      # |> put_resp_header("location", ~p"/api/promotions/#{promotion}")
       |> render(:show, promotion: promotion)
     end
   end

@@ -33,6 +33,8 @@ defmodule ShopWeb.Router do
     get "/products/:slug", ProductController, :show
     resources "/promotions", PromotionController
 
+    live "/products-live", ProductLive.Index
+
     # resources "/products", ProductController, except: [:delete]
 
     # resources "/users", UserController do
@@ -41,12 +43,12 @@ defmodule ShopWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", ShopWeb do
-    pipe_through :api
+  # scope "/api", ShopWeb do
+  #   pipe_through :api
 
-    get "/products", ApiController, :index
-    resources "/promotions", PromotionController, except: [:new, :edit]
-  end
+  #   get "/products", ApiController, :index
+  #   resources "/promotions", PromotionController, except: [:new, :edit]
+  # end
 
   # scope "/dashboard", ShopWeb do
   #   pipe_through [:browser, :auth]
